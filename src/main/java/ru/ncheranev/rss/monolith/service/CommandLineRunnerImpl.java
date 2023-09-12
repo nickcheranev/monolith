@@ -20,11 +20,11 @@ public class CommandLineRunnerImpl implements CommandLineRunner {
     private FeedMapper feedMapper;
     @Override
     public void run(String... args) throws Exception {
-        String url = "https://news.ru/rss/category/post/economics/";
-        FeedDto feedDto = loaderService.load(url);
-//        log.info("feed: {}", objectMapper.writerWithDefaultPrettyPrinter().writeValueAsString(feedDto));
-
-        var saved = feedService.save(feedMapper.mapToFeedEntity(feedDto));
-        log.info("saved: {}", saved);
+//        String url = "https://news.ru/rss/category/post/economics/";
+//        FeedDto feedDto = loaderService.load(url);
+////        log.info("feed: {}", objectMapper.writerWithDefaultPrettyPrinter().writeValueAsString(feedDto));
+//
+//        var saved = feedService.save(feedMapper.mapToFeedEntity(feedDto));
+//        log.info("saved: {}", saved);
     }
 }

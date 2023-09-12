@@ -26,3 +26,4 @@ These additional references should also help you:
 
 * [Gradle Build Scans – insights for your project's build](https://scans.gradle.com#gradle)
 
+liquibase --driver=org.postgresql.Driver --classpath="C:\\Users\\ncheranev\\Downloads\\postgresql-42.6.0.jar" --url="jdbc:postgresql://localhost:5432/rss" --changeLogFile="C:\\Users\\ncheranev\\Downloads\\generateChangeLog-monolith.xml" --username=rss --password=rss --logLevel=info --defaultSchemaName=monolith generateChangeLog

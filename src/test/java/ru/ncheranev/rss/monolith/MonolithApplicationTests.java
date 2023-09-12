@@ -10,4 +10,8 @@ class MonolithApplicationTests {
     void contextLoads() {
     }
 
+    @Test
+    void restRun() {
+        MonolithApplication.main(new String[]{});
+    }
 }

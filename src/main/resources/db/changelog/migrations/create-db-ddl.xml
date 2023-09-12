@@ -1,0 +1,59 @@
+<?xml version="1.1" encoding="UTF-8" standalone="no"?>
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.9.xsd">
+    <changeSet author="ncheranev (generated)" id="1694534438226-1">
+        <createSequence sequenceName="hibernate_sequence"/>
+    </changeSet>
+    <changeSet author="ncheranev (generated)" id="1694534438226-2">
+        <createTable tableName="category">
+            <column name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="category_pkey"/>
+            </column>
+            <column name="name" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="ncheranev (generated)" id="1694534438226-3">
+        <createTable tableName="feed">
+            <column name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="feed_pkey"/>
+            </column>
+            <column name="description" type="VARCHAR(255)"/>
+            <column name="link" type="VARCHAR(255)"/>
+            <column name="title" type="VARCHAR(255)"/>
+        </createTable>
+    </changeSet>
+    <changeSet author="ncheranev (generated)" id="1694534438226-4">
+        <createTable tableName="feed_item">
+            <column name="id" type="BIGINT">
+                <constraints nullable="false" primaryKey="true" primaryKeyName="feed_item_pkey"/>
+            </column>
+            <column name="description" type="VARCHAR(255)"/>
+            <column name="link" type="VARCHAR(255)"/>
+            <column name="pub_date" type="date"/>
+            <column name="title" type="VARCHAR(255)"/>
+            <column name="feed_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="ncheranev (generated)" id="1694534438226-5">
+        <createTable tableName="feed_item_category">
+            <column name="category_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="item_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+    <changeSet author="ncheranev (generated)" id="1694534438226-6">
+        <addForeignKeyConstraint baseColumnNames="feed_id" baseTableName="feed_item" constraintName="fkejen6hn7b6eocu9bjitcqx256" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="feed" validate="true"/>
+    </changeSet>
+    <changeSet author="ncheranev (generated)" id="1694534438226-7">
+        <addForeignKeyConstraint baseColumnNames="category_id" baseTableName="feed_item_category" constraintName="fkhkxuun8cfhuhvpskkm1y1krmi" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="category" validate="true"/>
+    </changeSet>
+    <changeSet author="ncheranev (generated)" id="1694534438226-8">
+        <addForeignKeyConstraint baseColumnNames="item_id" baseTableName="feed_item_category" constraintName="fkkk58ht6ecacvntmv5kg4sfibd" deferrable="false" initiallyDeferred="false" onDelete="NO ACTION" onUpdate="NO ACTION" referencedColumnNames="id" referencedTableName="feed_item" validate="true"/>
+    </changeSet>
+</databaseChangeLog>
